@@ -1,5 +1,2 @@
-//Call hello world
+//Get value from the UI 
 
-function HelloWorld(){
-    alert("helloworld");
-}
