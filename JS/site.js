@@ -1,43 +1,51 @@
-//Get value from the UI 
-//aka controller function
+//get user input 
 
 function getValue() {
 
-    document.getElementById("alert").classList("invisible");
-    let userString = document.getElementById("userString").value;
-    let revString = reverseString(userString);
-    displayString(revString);
+    //get user string from the page
+    let userString = document.getElementById("userString").value; 
+    //check for the palindrome 
+    let returnObj = CheckForPalindrome(userString);
+    //display out the message to the screen
+    displayMessage(returnObj); 
+
 }
 
+//check if message is a palindrome
+function CheckForPalindrome(userString) {
+    //tacocat 
+    userString = userString.toLowerCase();
 
-//reverse the string 
-//aka logic function 
+    //remove spaces and special characters 
+    let regex = /[^a-z0-9;]/gi;
+    userString = userString.replace(regex,"")
 
-function reverseString(userString) {
-
-    //last position in an array name name.length -1
-
-
-    let revString =[];
-
-    //reverse the string using a for loop 
-
+    let revString = [];
+    let returnObj =  {};
 
     for (let index = userString.length - 1; index >= 0; index--) {
-        const element = userString[index];
+        revString += userString[index]; 
+
         
     }
+        if (userString == revString) {
 
-    return revString;
+            returnObj.msg = "Well done you've entered a palindrome"
 
+        }
+
+        else {
+            returnObj.msg = "You didn't enter a palindrome. Please enter one"
+        }
+
+        returnObj.reversed = revString
+
+        return returnObj;
 }
 
-//display the string in reverse 
+//display the message to the string
+functstion displayMessage() {
 
-function displayString(revString) {
 
-
-    //write the message to the page 
-    document.getElementById('msg').innerHTML = ` ${userString}  ${revString}`;
 
 }
