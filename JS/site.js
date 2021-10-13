@@ -46,6 +46,10 @@ function CheckForPalindrome(userString) {
 //display the message to the string
 functstion displayMessage() {
 
+    document.getElementById("alertHeader").innerHTML = returnObj.msg;
+    document.getElementById("msg").innerHTML = `Your phrase reversed is ${returnObj.reversed}`;
+    document.getElementById("alert").classList.remove("invisible");
+
 
 
 }
